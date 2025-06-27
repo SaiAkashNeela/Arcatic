@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 99, 102, 241; /* indigo-500 */
+    --color-secondary: 16, 185, 129; /* emerald-500 */
+    --color-accent: 139, 92, 246; /* violet-500 */
+    --color-dark: 30, 41, 59; /* slate-800 */
+    --color-light: 248, 250, 252; /* slate-50 */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-700 overflow-x-hidden;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 focus:ring-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary/90 focus:ring-secondary;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors duration-300;
+  }
+
+  .heading-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+}
+
+/* AI-themed animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(var(--color-primary), 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(var(--color-primary), 0.8);
+  }
+}
+
+@keyframes float-vertical {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-horizontal {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgba(var(--color-primary), 1);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite;
+}
+
+.animate-float-vertical {
+  animation: float-vertical 3s ease-in-out infinite;
+}
+
+.animate-float-horizontal {
+  animation: float-horizontal 5s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 15s linear infinite;
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid;
+  width: 0;
+  animation: 
+    typing 3.5s steps(40, end) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+/* Neural network pattern */
+.neural-node {
+  @apply absolute rounded-full bg-primary/30;
+  animation: pulse-glow 3s infinite;
+}
+
+.neural-connection {
+  @apply absolute bg-primary/20;
+  height: 1px;
+  transform-origin: left center;
+}
+
+/* Glassmorphism */
+.glass {
+  @apply backdrop-blur-md bg-white/10 border border-white/20;
+}
+
+.glass-card {
+  @apply glass rounded-xl shadow-lg;
+}
+
+/* Gradient text and borders */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+}
+
+.border-gradient {
+  border-image: linear-gradient(to right, rgb(var(--color-primary)), rgb(var(--color-accent))) 1;
+}
+
+/* AI-themed elements */
+.circuit-pattern {
+  background-image: 
+    linear-gradient(rgba(var(--color-primary), 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--color-primary), 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+} 
