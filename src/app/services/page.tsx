@@ -1,261 +1,435 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Link from 'next/link';
-
-export const metadata = {
-  title: 'Our Services - Arcatic',
-  description: 'Explore our comprehensive range of services including digital marketing, design, development, and business solutions.',
-};
 
 export default function Services() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeTab, setActiveTab] = useState('all');
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   const services = [
     {
-      id: 'digital-marketing',
-      title: 'Digital Marketing',
-      description: 'Strategic online marketing campaigns that drive traffic and conversions.',
-      icon: (
-        <svg className="h-16 w-16 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
-        </svg>
-      ),
+      id: 1,
+      title: 'AI-Powered Digital Marketing',
+      category: 'marketing',
+      description: 'Leverage artificial intelligence to optimize your marketing campaigns, target the right audience, and maximize ROI.',
       features: [
-        'Search Engine Optimization (SEO)',
-        'Pay-Per-Click (PPC) Advertising',
-        'Social Media Marketing',
-        'Content Marketing',
-        'Email Marketing Campaigns',
-        'Analytics and Reporting'
-      ]
+        'Predictive audience targeting',
+        'AI-driven content optimization',
+        'Automated campaign management',
+        'Real-time performance analytics',
+        'Conversion rate optimization'
+      ],
+      image: '/images/services/ai-marketing.svg',
+      link: '/services/digital-marketing',
     },
     {
-      id: 'fashion-designing',
-      title: 'Fashion Designing',
-      description: 'Creative fashion design solutions for brands and individual clients.',
-      icon: (
-        <svg className="h-16 w-16 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-        </svg>
-      ),
+      id: 2,
+      title: 'Intelligent Fashion Design',
+      category: 'design',
+      description: 'Combine AI trend analysis with creative design to create fashion that resonates with your target audience.',
       features: [
-        'Custom Clothing Design',
-        'Brand Identity for Fashion Labels',
-        'Collection Development',
-        'Trend Analysis and Research',
-        'Technical Design and Patterns',
-        'Sustainable Fashion Solutions'
-      ]
+        'AI trend forecasting',
+        'Style recommendation algorithms',
+        'Virtual fitting technology',
+        'Design optimization',
+        'Sustainable material selection'
+      ],
+      image: '/images/services/fashion-design.svg',
+      link: '/services/fashion-designing',
     },
     {
-      id: 'brand-creation',
-      title: 'Brand Creation',
-      description: 'Comprehensive brand development from concept to market positioning.',
-      icon: (
-        <svg className="h-16 w-16 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-        </svg>
-      ),
+      id: 3,
+      title: 'Data-Driven Brand Creation',
+      category: 'branding',
+      description: 'Create a compelling brand identity backed by data insights and AI-powered market analysis.',
       features: [
-        'Brand Strategy Development',
-        'Logo and Visual Identity Design',
-        'Brand Guidelines Creation',
-        'Brand Messaging and Voice',
-        'Brand Positioning Strategy',
-        'Rebranding Services'
-      ]
+        'AI-powered market research',
+        'Brand personality mapping',
+        'Competitive positioning analysis',
+        'Visual identity generation',
+        'Brand voice development'
+      ],
+      image: '/images/services/brand-creation.svg',
+      link: '/services/brand-creation',
     },
     {
-      id: 'photography',
-      title: 'Photography Ads',
-      description: 'Professional photography services for advertising and marketing materials.',
-      icon: (
-        <svg className="h-16 w-16 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
+      id: 4,
+      title: 'Enhanced Photography Services',
+      category: 'media',
+      description: 'Utilize AI image enhancement and optimization to create stunning photography that captures attention.',
       features: [
-        'Product Photography',
-        'Lifestyle and Brand Photography',
-        'Commercial Photography',
-        'Fashion Photography',
-        'Food and Beverage Photography',
-        'Real Estate Photography'
-      ]
+        'AI-powered image enhancement',
+        'Automated photo editing',
+        'Visual style consistency',
+        'Audience engagement analysis',
+        'Optimal platform formatting'
+      ],
+      image: '/images/services/photography.svg',
+      link: '/services/photography',
     },
     {
-      id: 'videography',
-      title: 'Videography Ads',
-      description: 'High-quality video production for commercials and promotional content.',
-      icon: (
-        <svg className="h-16 w-16 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-        </svg>
-      ),
+      id: 5,
+      title: 'Smart Video Production',
+      category: 'media',
+      description: 'Create high-impact video content with AI-driven editing, optimization, and audience analysis.',
       features: [
-        'Commercial Video Production',
-        'Brand Story Videos',
-        'Product Demonstrations',
-        'Testimonial Videos',
-        'Social Media Video Content',
-        'Aerial Videography'
-      ]
+        'Automated video editing',
+        'Engagement optimization',
+        'AI-powered scene selection',
+        'Audience retention analysis',
+        'Platform-specific optimization'
+      ],
+      image: '/images/services/videography.svg',
+      link: '/services/videography',
     },
     {
-      id: 'data-analysis',
-      title: 'Data Analysis',
-      description: 'Comprehensive data analysis to drive informed business decisions.',
-      icon: (
-        <svg className="h-16 w-16 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
-      ),
+      id: 6,
+      title: 'Intelligent Web Development',
+      category: 'development',
+      description: 'Build cutting-edge websites and applications powered by AI and machine learning technologies.',
       features: [
-        'Business Intelligence',
-        'Market Research Analysis',
-        'Customer Behavior Analysis',
-        'Performance Metrics Tracking',
-        'Predictive Analytics',
-        'Data Visualization and Reporting'
-      ]
+        'AI-driven user experience',
+        'Personalized content delivery',
+        'Intelligent search functionality',
+        'Behavior prediction algorithms',
+        'Automated testing and optimization'
+      ],
+      image: '/images/services/web-development.svg',
+      link: '/services/development',
     },
     {
-      id: 'business-analysis',
-      title: 'Business Analysis',
-      description: 'Strategic business analysis to optimize operations and drive growth.',
-      icon: (
-        <svg className="h-16 w-16 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      ),
+      id: 7,
+      title: 'Predictive Business Analysis',
+      category: 'analysis',
+      description: 'Harness the power of AI to analyze business data, identify trends, and make data-driven decisions.',
       features: [
-        'Process Optimization',
-        'Strategic Planning',
-        'Competitive Analysis',
-        'SWOT Analysis',
-        'Business Requirements Documentation',
-        'Change Management'
-      ]
+        'Predictive analytics',
+        'Market trend forecasting',
+        'Competitive intelligence',
+        'Business process optimization',
+        'Strategic recommendation engine'
+      ],
+      image: '/images/services/business-analysis.svg',
+      link: '/services/business-analysis',
     },
     {
-      id: 'development',
-      title: 'Web & App Development',
-      description: 'Custom web and mobile app solutions tailored to your business needs.',
-      icon: (
-        <svg className="h-16 w-16 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
-      ),
+      id: 8,
+      title: 'AI Research & Development',
+      category: 'innovation',
+      description: 'Stay ahead of the curve with custom AI research and development tailored to your business needs.',
       features: [
-        'Custom Website Development',
-        'E-commerce Solutions',
-        'Mobile App Development',
-        'Web Application Development',
-        'UI/UX Design',
-        'Maintenance and Support'
-      ]
+        'Custom AI model development',
+        'Industry-specific solutions',
+        'Proof of concept creation',
+        'Technology integration',
+        'Ongoing AI optimization'
+      ],
+      image: '/images/services/ai-research.svg',
+      link: '/services/ai-research',
     },
-    {
-      id: 'innovation',
-      title: 'Innovation R&D',
-      description: 'Research and development services to drive innovation in your business.',
-      icon: (
-        <svg className="h-16 w-16 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-        </svg>
-      ),
-      features: [
-        'Product Innovation',
-        'Technology Research',
-        'Proof of Concept Development',
-        'Innovation Workshops',
-        'Digital Transformation Strategy',
-        'Emerging Technology Integration'
-      ]
-    }
   ];
 
-  return (
-    <main>
-      <Navbar />
+  const categories = [
+    { id: 'all', name: 'All Services' },
+    { id: 'marketing', name: 'Marketing' },
+    { id: 'design', name: 'Design' },
+    { id: 'branding', name: 'Branding' },
+    { id: 'media', name: 'Media' },
+    { id: 'development', name: 'Development' },
+    { id: 'analysis', name: 'Analysis' },
+    { id: 'innovation', name: 'Innovation' },
+  ];
 
+  const filteredServices = activeTab === 'all' 
+    ? services 
+    : services.filter(service => service.category === activeTab);
+
+  return (
+    <main className="overflow-hidden">
+      <Navbar />
+      
       {/* Hero Section */}
-      <section className="bg-gray-900 text-white py-20">
-        <div className="container-custom">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
-            <p className="text-xl mb-8">
-              We offer a comprehensive range of services to help your business grow and succeed in today's competitive market.
+      <section className="relative pt-32 pb-20 bg-dark text-white">
+        <div className="absolute inset-0 bg-neural-pattern opacity-20"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-dark to-transparent"></div>
+        
+        <div className="container-custom relative z-10">
+          <div className={`text-center transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className="inline-block px-4 py-1 rounded-full bg-white/10 text-white font-medium text-sm mb-4 backdrop-blur-sm">Our Services</div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
+              <span className="text-gradient">AI-Powered</span> Solutions <br />for Modern Businesses
+            </h1>
+            <p className="text-xl max-w-3xl mx-auto mb-8 text-gray-300">
+              We combine artificial intelligence with human creativity to deliver cutting-edge services that drive growth and transform businesses.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="section">
+      {/* Services Filter Section */}
+      <section className="py-8 bg-light sticky top-0 z-30 shadow-md backdrop-blur-md bg-light/90">
         <div className="container-custom">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4">
+            {categories.map(category => (
+              <button
+                key={category.id}
+                onClick={() => setActiveTab(category.id)}
+                className={`px-4 py-2 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
+                  activeTab === category.id
+                    ? 'bg-primary text-white shadow-glow'
+                    : 'bg-white text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid Section */}
+      <section className="section bg-light relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full filter blur-3xl"></div>
+        
+        <div className="container-custom relative">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <div key={service.id} className="bg-white p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl">
-                <div className="mb-6">{service.icon}</div>
-                <h2 className="text-2xl font-bold mb-3">{service.title}</h2>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <Link href={`/services/${service.id}`} className="btn btn-primary">
-                  Learn More
-                </Link>
+            {filteredServices.map((service, index) => (
+              <div 
+                key={service.id}
+                className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="p-6 flex flex-col h-full">
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-32 h-32">
+                      <img src={service.image} alt={service.title} className="w-full h-full" />
+                    </div>
+                  </div>
+                  <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary font-medium text-xs mb-4">
+                    {categories.find(cat => cat.id === service.category)?.name}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-dark">{service.title}</h3>
+                  <p className="text-gray-600 mb-6">{service.description}</p>
+                  
+                  <div className="mb-6 flex-grow">
+                    <h4 className="font-semibold text-dark mb-2">Key Features:</h4>
+                    <ul className="space-y-1">
+                      {service.features.map((feature, i) => (
+                        <li key={i} className="flex items-start">
+                          <svg className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-14 0 9 9 0 0114 0z" />
+                          </svg>
+                          <span className="text-gray-600 text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <Link 
+                    href={service.link} 
+                    className="mt-auto inline-flex items-center text-primary font-medium hover:text-accent transition-colors"
+                  >
+                    Learn more
+                    <svg className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </Link>
+                </div>
+                <div className="h-1 w-full bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Service Details */}
-      {services.map((service) => (
-        <section key={service.id} id={service.id} className="section bg-gray-50">
-          <div className="container-custom">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="mb-6">{service.icon}</div>
-                <h2 className="text-3xl font-bold mb-4">{service.title}</h2>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <ul className="space-y-3">
-                  {service.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <svg className="h-6 w-6 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8">
-                  <Link href="/contact" className="btn btn-primary">
-                    Request a Quote
-                  </Link>
-                </div>
-              </div>
-              <div className="relative">
-                <div className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden bg-gray-300">
-                  {/* Replace with actual service images */}
-                  <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                    <span className="text-gray-500">{service.title} Image</span>
+      {/* Process Section */}
+      <section className="section bg-dark text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-neural-pattern opacity-10"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/20 rounded-full filter blur-3xl"></div>
+        
+        <div className="container-custom relative">
+          <div className="text-center mb-16">
+            <div className="inline-block px-4 py-1 rounded-full bg-white/10 text-white font-medium text-sm mb-4">Our Process</div>
+            <h2 className="text-3xl font-bold mb-4 text-white">How We Deliver AI-Powered Excellence</h2>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Our structured approach combines AI technology with human expertise to deliver exceptional results for your business.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                step: '01',
+                title: 'Discovery',
+                description: 'We begin by understanding your business goals, challenges, and target audience through in-depth consultation.',
+                icon: (
+                  <svg className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                ),
+              },
+              {
+                step: '02',
+                title: 'Strategy',
+                description: 'Our AI systems analyze data to develop a tailored strategy that aligns with your business objectives.',
+                icon: (
+                  <svg className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                ),
+              },
+              {
+                step: '03',
+                title: 'Execution',
+                description: 'We implement the strategy using our AI-powered tools and creative expertise to deliver high-quality solutions.',
+                icon: (
+                  <svg className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                ),
+              },
+              {
+                step: '04',
+                title: 'Optimization',
+                description: 'Our AI continuously monitors performance, learns, and adapts to optimize results and maximize ROI.',
+                icon: (
+                  <svg className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                ),
+              },
+            ].map((process, index) => (
+              <div 
+                key={index} 
+                className={`glass-card p-6 transition-all duration-700 transform ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
+                <div className="mb-4">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-primary">
+                    {process.icon}
                   </div>
                 </div>
+                <div className="text-3xl font-bold text-primary mb-2">{process.step}</div>
+                <h3 className="text-xl font-bold mb-2 text-white">{process.title}</h3>
+                <p className="text-gray-300">{process.description}</p>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
+
+      {/* Technologies Section */}
+      <section className="section relative overflow-hidden">
+        <div className="absolute inset-0 bg-neural-pattern opacity-5"></div>
+        
+        <div className="container-custom relative">
+          <div className="text-center mb-16">
+            <div className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">Our Technologies</div>
+            <h2 className="text-3xl font-bold mb-4 text-dark">Cutting-Edge AI Technologies</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We leverage the latest AI technologies to deliver innovative solutions that give your business a competitive edge.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Machine Learning',
+                description: 'Algorithms that learn from data to make predictions and decisions without explicit programming.',
+                icon: (
+                  <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                ),
+              },
+              {
+                title: 'Natural Language Processing',
+                description: 'Technology that enables computers to understand, interpret, and generate human language.',
+                icon: (
+                  <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                  </svg>
+                ),
+              },
+              {
+                title: 'Computer Vision',
+                description: 'AI systems that can identify and process images and visual data similar to human vision.',
+                icon: (
+                  <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                ),
+              },
+              {
+                title: 'Predictive Analytics',
+                description: 'Using data, statistical algorithms, and machine learning techniques to identify future outcomes.',
+                icon: (
+                  <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                ),
+              },
+              {
+                title: 'Generative AI',
+                description: 'AI systems that can create new content including text, images, audio, and video.',
+                icon: (
+                  <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                ),
+              },
+              {
+                title: 'Automated Decision Systems',
+                description: 'AI-powered systems that can make decisions without human intervention based on data analysis.',
+                icon: (
+                  <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                  </svg>
+                ),
+              },
+            ].map((tech, index) => (
+              <div 
+                key={index} 
+                className={`bg-white rounded-xl shadow-lg p-8 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-xl ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="mb-4 text-primary">{tech.icon}</div>
+                <h3 className="text-xl font-bold mb-3 text-dark">{tech.title}</h3>
+                <p className="text-gray-600">{tech.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
-      <section className="section bg-primary text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+      <section className="section bg-gradient-to-r from-primary to-accent text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-neural-pattern opacity-10"></div>
+        
+        <div className="container-custom relative text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Business with AI?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Contact us today for a free consultation and let's discuss how we can help your business grow.
+            Contact us today for a free consultation and discover how our AI-powered solutions can help your business grow.
           </p>
-          <Link href="/contact" className="btn bg-white text-primary hover:bg-gray-100">
-            Get in Touch
+          <Link href="/contact" className="btn bg-white text-primary hover:bg-gray-100 shadow-glow">
+            Get Started Now
           </Link>
         </div>
       </section>

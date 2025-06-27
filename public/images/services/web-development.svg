@@ -1,0 +1,101 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.9">
+    <!-- Background circle -->
+    <circle cx="100" cy="100" r="80" fill="url(#paint0_radial)" />
+    
+    <!-- Browser window -->
+    <rect x="40" y="50" width="120" height="100" rx="4" stroke="#6366f1" stroke-width="2" fill="none" />
+    
+    <!-- Browser header -->
+    <rect x="40" y="50" width="120" height="20" rx="4" stroke="#6366f1" stroke-width="2" fill="#6366f1" fill-opacity="0.1" />
+    
+    <!-- Browser buttons -->
+    <circle cx="50" cy="60" r="3" fill="#f43f5e" />
+    <circle cx="60" cy="60" r="3" fill="#eab308" />
+    <circle cx="70" cy="60" r="3" fill="#10b981" />
+    
+    <!-- Code elements -->
+    <path d="M60 90L50 100L60 110" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M80 90L90 100L80 110" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M70 120L75 80" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
+    
+    <!-- AI nodes -->
+    <circle cx="110" cy="85" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="130" cy="85" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.3s" />
+    </circle>
+    <circle cx="110" cy="105" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.6s" />
+    </circle>
+    <circle cx="130" cy="105" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.9s" />
+    </circle>
+    <circle cx="110" cy="125" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="1.2s" />
+    </circle>
+    <circle cx="130" cy="125" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="1.5s" />
+    </circle>
+    
+    <!-- AI connections -->
+    <path d="M110 85L130 85" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 2">
+      <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite" />
+    </path>
+    <path d="M110 85L110 105" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 2">
+      <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite" />
+    </path>
+    <path d="M130 85L130 105" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 2">
+      <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite" />
+    </path>
+    <path d="M110 105L130 105" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 2">
+      <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite" />
+    </path>
+    <path d="M110 105L110 125" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 2">
+      <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite" />
+    </path>
+    <path d="M130 105L130 125" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 2">
+      <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite" />
+    </path>
+    <path d="M110 125L130 125" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 2">
+      <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Data flow animation -->
+    <circle cx="110" cy="85" r="2" fill="white">
+      <animate attributeName="cx" values="110;130" dur="1s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite" />
+    </circle>
+    
+    <circle cx="110" cy="105" r="2" fill="white">
+      <animate attributeName="cx" values="110;130" dur="1s" repeatCount="indefinite" begin="0.5s" />
+      <animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite" begin="0.5s" />
+    </circle>
+    
+    <circle cx="110" cy="125" r="2" fill="white">
+      <animate attributeName="cx" values="110;130" dur="1s" repeatCount="indefinite" begin="1s" />
+      <animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite" begin="1s" />
+    </circle>
+    
+    <!-- Responsive design elements -->
+    <rect x="150" y="140" width="20" height="30" rx="2" stroke="#10b981" stroke-width="1.5" />
+    <rect x="155" y="145" width="10" height="15" stroke="#10b981" stroke-width="1" />
+    
+    <rect x="120" y="140" width="25" height="30" rx="2" stroke="#10b981" stroke-width="1.5" />
+    <rect x="125" y="145" width="15" height="15" stroke="#10b981" stroke-width="1" />
+    
+    <!-- Animated pulse -->
+    <circle cx="100" cy="100" r="30" fill="#6366f1" opacity="0.1">
+      <animate attributeName="r" values="30;40;30" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.1;0.2;0.1" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(100 100) rotate(90) scale(80)">
+      <stop offset="0" stop-color="#6366f1" stop-opacity="0.1" />
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+</svg> 

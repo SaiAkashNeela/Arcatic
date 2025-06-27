@@ -1,0 +1,107 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.9">
+    <!-- Background circle -->
+    <circle cx="100" cy="100" r="80" fill="url(#paint0_radial)" />
+    
+    <!-- Fashion design elements -->
+    <path d="M70 60L100 40L130 60V140L100 160L70 140V60Z" stroke="#6366f1" stroke-width="2" fill="none" />
+    
+    <!-- Dress outline -->
+    <path d="M85 70C85 70 100 60 115 70C115 70 120 100 120 130C120 130 110 140 100 140C90 140 80 130 80 130C80 100 85 70 85 70Z" stroke="#8b5cf6" stroke-width="2" fill="none" />
+    
+    <!-- Measurements -->
+    <path d="M70 80H80" stroke="#10b981" stroke-width="1" />
+    <path d="M70 100H80" stroke="#10b981" stroke-width="1" />
+    <path d="M70 120H80" stroke="#10b981" stroke-width="1" />
+    
+    <path d="M120 80H130" stroke="#10b981" stroke-width="1" />
+    <path d="M120 100H130" stroke="#10b981" stroke-width="1" />
+    <path d="M120 120H130" stroke="#10b981" stroke-width="1" />
+    
+    <!-- AI elements - neural nodes -->
+    <circle cx="100" cy="50" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="85" cy="70" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.3s" />
+    </circle>
+    <circle cx="115" cy="70" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.6s" />
+    </circle>
+    <circle cx="100" cy="140" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.9s" />
+    </circle>
+    
+    <!-- AI connections -->
+    <path d="M100 50L85 70" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 2">
+      <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite" />
+    </path>
+    <path d="M100 50L115 70" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 2">
+      <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite" />
+    </path>
+    <path d="M85 70L100 140" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 2">
+      <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite" />
+    </path>
+    <path d="M115 70L100 140" stroke="#6366f1" stroke-width="1" stroke-dasharray="2 2">
+      <animate attributeName="stroke-dashoffset" values="0;4" dur="1s" repeatCount="indefinite" />
+    </path>
+    
+    <!-- Fashion elements -->
+    <path d="M60 150C60 150 80 170 100 170C120 170 140 150 140 150" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" />
+    
+    <!-- Thread and needle -->
+    <path d="M140 60L160 40" stroke="#10b981" stroke-width="1" />
+    <circle cx="160" cy="40" r="3" fill="#10b981" />
+    <path d="M140 60C140 60 145 65 150 60" stroke="#10b981" stroke-width="1" />
+    
+    <!-- Scissors -->
+    <path d="M50 50C45 45 40 45 35 50C30 55 30 60 35 65L50 50Z" fill="#8b5cf6" />
+    <path d="M50 50C45 55 40 55 35 50C30 45 30 40 35 35L50 50Z" fill="#8b5cf6" />
+    <circle cx="35" cy="42.5" r="3" fill="#ffffff" />
+    <circle cx="35" cy="57.5" r="3" fill="#ffffff" />
+    
+    <!-- AI data flow animation -->
+    <circle cx="70" cy="80" r="2" fill="white">
+      <animate attributeName="cx" values="70;80" dur="1s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite" />
+    </circle>
+    
+    <circle cx="70" cy="100" r="2" fill="white">
+      <animate attributeName="cx" values="70;80" dur="1s" repeatCount="indefinite" begin="0.3s" />
+      <animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite" begin="0.3s" />
+    </circle>
+    
+    <circle cx="70" cy="120" r="2" fill="white">
+      <animate attributeName="cx" values="70;80" dur="1s" repeatCount="indefinite" begin="0.6s" />
+      <animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite" begin="0.6s" />
+    </circle>
+    
+    <circle cx="130" cy="80" r="2" fill="white">
+      <animate attributeName="cx" values="130;120" dur="1s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite" />
+    </circle>
+    
+    <circle cx="130" cy="100" r="2" fill="white">
+      <animate attributeName="cx" values="130;120" dur="1s" repeatCount="indefinite" begin="0.3s" />
+      <animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite" begin="0.3s" />
+    </circle>
+    
+    <circle cx="130" cy="120" r="2" fill="white">
+      <animate attributeName="cx" values="130;120" dur="1s" repeatCount="indefinite" begin="0.6s" />
+      <animate attributeName="opacity" values="1;0" dur="1s" repeatCount="indefinite" begin="0.6s" />
+    </circle>
+    
+    <!-- Animated pulse -->
+    <circle cx="100" cy="100" r="30" fill="#8b5cf6" opacity="0.1">
+      <animate attributeName="r" values="30;40;30" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.1;0.2;0.1" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(100 100) rotate(90) scale(80)">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.1" />
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+</svg> 

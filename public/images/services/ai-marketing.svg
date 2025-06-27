@@ -1,0 +1,84 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.9">
+    <!-- Background circle -->
+    <circle cx="100" cy="100" r="80" fill="url(#paint0_radial)" />
+    
+    <!-- Brain outline -->
+    <path d="M100 50C80 50 60 70 60 100C60 130 80 150 100 150C120 150 140 130 140 100C140 70 120 50 100 50Z" stroke="#6366f1" stroke-width="3" fill="none" />
+    
+    <!-- Neural connections -->
+    <path d="M70 80C80 70 90 65 100 65" stroke="#6366f1" stroke-width="1.5" />
+    <path d="M70 100C85 85 95 80 105 80" stroke="#6366f1" stroke-width="1.5" />
+    <path d="M70 120C85 105 100 100 110 100" stroke="#6366f1" stroke-width="1.5" />
+    
+    <path d="M130 80C120 70 110 65 100 65" stroke="#8b5cf6" stroke-width="1.5" />
+    <path d="M130 100C115 85 105 80 95 80" stroke="#8b5cf6" stroke-width="1.5" />
+    <path d="M130 120C115 105 100 100 90 100" stroke="#8b5cf6" stroke-width="1.5" />
+    
+    <!-- Neural nodes -->
+    <circle cx="70" cy="80" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="70" cy="100" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.3s" />
+    </circle>
+    <circle cx="70" cy="120" r="4" fill="#6366f1">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.6s" />
+    </circle>
+    
+    <circle cx="100" cy="65" r="4" fill="#10b981">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.2s" />
+    </circle>
+    <circle cx="105" cy="80" r="4" fill="#10b981">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.5s" />
+    </circle>
+    <circle cx="110" cy="100" r="4" fill="#10b981">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.8s" />
+    </circle>
+    
+    <circle cx="130" cy="80" r="4" fill="#8b5cf6">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.4s" />
+    </circle>
+    <circle cx="130" cy="100" r="4" fill="#8b5cf6">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.7s" />
+    </circle>
+    <circle cx="130" cy="120" r="4" fill="#8b5cf6">
+      <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="1s" />
+    </circle>
+    
+    <!-- Data flow animation -->
+    <circle cx="70" cy="80" r="2" fill="white">
+      <animate attributeName="cx" values="70;100" dur="1.5s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="80;65" dur="1.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="1;0" dur="1.5s" repeatCount="indefinite" />
+    </circle>
+    
+    <circle cx="130" cy="80" r="2" fill="white">
+      <animate attributeName="cx" values="130;100" dur="1.5s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="80;65" dur="1.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="1;0" dur="1.5s" repeatCount="indefinite" />
+    </circle>
+    
+    <!-- Marketing elements -->
+    <path d="M85 130H115" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
+    <path d="M90 135H110" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
+    <path d="M95 140H105" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
+    
+    <!-- Chart elements -->
+    <path d="M160 120V160H80V120" stroke="#6366f1" stroke-width="2" />
+    <path d="M90 150L100 130L110 145L120 135L130 150L140 125L150 150" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Animated pulse -->
+    <circle cx="100" cy="100" r="30" fill="#10b981" opacity="0.1">
+      <animate attributeName="r" values="30;40;30" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.1;0.2;0.1" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(100 100) rotate(90) scale(80)">
+      <stop offset="0" stop-color="#6366f1" stop-opacity="0.1" />
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+</svg> 
