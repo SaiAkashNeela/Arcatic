@@ -1,5 +1,6 @@
 import '@/styles/globals.css';
 import { Metadata } from 'next';
+import Chatbot from '@/components/Chatbot';
 
 export const metadata: Metadata = {
   title: 'Arcatic - Innovating Ideas. Delivering Excellence.',
@@ -23,6 +24,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+        <Chatbot />
       </body>
     </html>
   );

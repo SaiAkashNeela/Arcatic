@@ -38,94 +38,78 @@ export default function TermsOfService() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full filter blur-3xl"></div>
         
         <div className="container-custom relative">
-          <div className={`bg-white rounded-xl shadow-lg p-8 md:p-12 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="prose prose-lg max-w-none">
-              <h2>1. Introduction</h2>
-              <p>
-                Welcome to Arcatic ("Company", "we", "our", "us"). These Terms of Service ("Terms", "Terms of Service") govern your use of our website located at <a href="https://arcatic.com" className="text-primary hover:underline">arcatic.com</a> (together or individually "Service") operated by Arcatic.
-              </p>
-              <p>
-                Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages. Please read it here: <a href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</a>.
-              </p>
-              <p>
-                By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service.
-              </p>
+          {/* Quick Summary Card */}
+          <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-6 mb-8 flex flex-col md:flex-row items-center gap-4 shadow-glow">
+            <div className="flex-shrink-0">
+              <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12H8m8 0a8 8 0 11-16 0 8 8 0 0116 0z" /></svg>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold mb-1 text-dark">Key Terms at a Glance</h2>
+              <ul className="text-gray-700 text-sm list-disc pl-5 space-y-1">
+                <li>By using Arcatic, you agree to our terms and privacy policy.</li>
+                <li>Your content remains yours, but you grant us rights to use it for service delivery.</li>
+                <li>We protect your data and intellectual property.</li>
+                <li>Contact us for any questions or clarifications.</li>
+              </ul>
+            </div>
+          </div>
 
-              <h2>2. Communications</h2>
-              <p>
-                By using our Service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or instructions provided in any email we send.
-              </p>
-
-              <h2>3. Purchases</h2>
-              <p>
-                If you wish to purchase any product or service made available through the Service ("Purchase"), you may be asked to supply certain information relevant to your Purchase including but not limited to, your credit card number, the expiration date of your credit card, your billing address, and your shipping information.
-              </p>
-              <p>
-                You represent and warrant that: (i) you have the legal right to use any credit card(s) or other payment method(s) in connection with any Purchase; and that (ii) the information you supply to us is true, correct and complete.
-              </p>
-              <p>
-                The service may employ the use of third-party services for the purpose of facilitating payment and the completion of Purchases. By submitting your information, you grant us the right to provide the information to these third parties subject to our Privacy Policy.
-              </p>
-
-              <h2>4. Content</h2>
-              <p>
-                Our Service allows you to post, link, store, share and otherwise make available certain information, text, graphics, videos, or other material ("Content"). You are responsible for the Content that you post on or through the Service, including its legality, reliability, and appropriateness.
-              </p>
-              <p>
-                By posting Content on or through the Service, You represent and warrant that: (i) the Content is yours (you own it) and/or you have the right to use it and the right to grant us the rights and license as provided in these Terms, and (ii) that the posting of your Content on or through the Service does not violate the privacy rights, publicity rights, copyrights, contract rights or any other rights of any person or entity.
-              </p>
-
-              <h2>5. Intellectual Property</h2>
-              <p>
-                The Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of Arcatic and its licensors. The Service is protected by copyright, trademark, and other laws of both the United Kingdom and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of Arcatic.
-              </p>
-
-              <h2>6. Termination</h2>
-              <p>
-                We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.
-              </p>
-              <p>
-                If you wish to terminate your account, you may simply discontinue using the Service. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.
-              </p>
-
-              <h2>7. Limitation of Liability</h2>
-              <p>
-                In no event shall Arcatic, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage, and even if a remedy set forth herein is found to have failed of its essential purpose.
-              </p>
-
-              <h2>8. Disclaimer</h2>
-              <p>
-                Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance.
-              </p>
-              <p>
-                Arcatic, its subsidiaries, affiliates, and its licensors do not warrant that a) the Service will function uninterrupted, secure or available at any particular time or location; b) any errors or defects will be corrected; c) the Service is free of viruses or other harmful components; or d) the results of using the Service will meet your requirements.
-              </p>
-
-              <h2>9. Governing Law</h2>
-              <p>
-                These Terms shall be governed and construed in accordance with the laws of the United Kingdom, without regard to its conflict of law provisions.
-              </p>
-              <p>
-                Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service, and supersede and replace any prior agreements we might have had between us regarding the Service.
-              </p>
-
-              <h2>10. Changes</h2>
-              <p>
-                We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
-              </p>
-              <p>
-                By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Service.
-              </p>
-
-              <h2>11. Contact Us</h2>
-              <p>
-                If you have any questions about these Terms, please contact us:
-              </p>
-              <p>
-                Email: <a href="mailto:legal@arcatic.com" className="text-primary hover:underline">legal@arcatic.com</a><br />
-                Address: 42 Innovation House, Tech City, London EC1V 2PY, United Kingdom<br />
-                Phone: +44 (0) 20 7123 4567
-              </p>
+          <div className={`bg-white rounded-xl shadow-lg p-8 md:p-12 transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}> 
+            {/* Section: Introduction */}
+            <div className="mb-10">
+              <div className="flex items-center mb-2">
+                <svg className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
+                <h2 className="text-lg font-bold text-dark">Introduction</h2>
+              </div>
+              <p className="text-gray-600">Welcome to Arcatic. By using our website and services, you agree to these terms. Please read them carefully.</p>
+            </div>
+            {/* Section: Communications */}
+            <div className="mb-10">
+              <div className="flex items-center mb-2">
+                <svg className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 7.165 6 9.388 6 12v2.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                <h2 className="text-lg font-bold text-dark">Communications</h2>
+              </div>
+              <p className="text-gray-600">By using our services, you may receive emails and updates. You can opt out at any time.</p>
+            </div>
+            {/* Section: Purchases */}
+            <div className="mb-10">
+              <div className="flex items-center mb-2">
+                <svg className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <h2 className="text-lg font-bold text-dark">Purchases</h2>
+              </div>
+              <p className="text-gray-600">If you purchase services, you agree to provide accurate information and comply with payment terms. Third-party payment processors may be used.</p>
+            </div>
+            {/* Section: Content & Intellectual Property */}
+            <div className="mb-10">
+              <div className="flex items-center mb-2">
+                <svg className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2a4 4 0 018 0v2m-4-4v4m0 0v4m0-4c-1.104 0-2-.896-2-2s.896-2 2-2z" /></svg>
+                <h2 className="text-lg font-bold text-dark">Content & Intellectual Property</h2>
+              </div>
+              <p className="text-gray-600">You retain ownership of your content, but grant us rights to use it for service delivery. Our site and services are protected by copyright and trademark laws.</p>
+            </div>
+            {/* Section: Termination & Limitation of Liability */}
+            <div className="mb-10">
+              <div className="flex items-center mb-2">
+                <svg className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7" /></svg>
+                <h2 className="text-lg font-bold text-dark">Termination & Limitation of Liability</h2>
+              </div>
+              <p className="text-gray-600">We may suspend or terminate your access for violations. We are not liable for indirect damages. Please use our services responsibly.</p>
+            </div>
+            {/* Section: Governing Law & Changes */}
+            <div className="mb-10">
+              <div className="flex items-center mb-2">
+                <svg className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <h2 className="text-lg font-bold text-dark">Governing Law & Changes</h2>
+              </div>
+              <p className="text-gray-600">These terms are governed by UK law. We may update terms as needed and will notify you of changes.</p>
+            </div>
+            {/* Section: Contact */}
+            <div className="mb-2">
+              <div className="flex items-center mb-2">
+                <svg className="h-6 w-6 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12H8m8 0a8 8 0 11-16 0 8 8 0 0116 0z" /></svg>
+                <h2 className="text-lg font-bold text-dark">Contact Us</h2>
+              </div>
+              <p className="text-gray-600">Email: <a href="mailto:legal@arcatic.com" className="text-primary hover:underline">legal@arcatic.com</a><br />Address: 42 Innovation House, Tech City, London EC1V 2PY, United Kingdom<br />Phone: +44 (0) 20 7123 4567</p>
             </div>
           </div>
         </div>

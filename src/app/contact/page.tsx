@@ -5,9 +5,26 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
+// Add these interfaces at the top, after imports
+interface ContactFormState {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  service: string;
+  message: string;
+}
+
+interface ContactFormErrors {
+  name?: string;
+  email?: string;
+  service?: string;
+  message?: string;
+}
+
 export default function Contact() {
   const [isVisible, setIsVisible] = useState(false);
-  const [formState, setFormState] = useState({
+  const [formState, setFormState] = useState<ContactFormState>({
     name: '',
     email: '',
     phone: '',
@@ -17,14 +34,14 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formErrors, setFormErrors] = useState({});
+  const [formErrors, setFormErrors] = useState<ContactFormErrors>({});
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
   const validateForm = () => {
-    const errors = {};
+    const errors: ContactFormErrors = {};
     if (!formState.name.trim()) errors.name = 'Name is required';
     if (!formState.email.trim()) errors.email = 'Email is required';
     else if (!/\S+@\S+\.\S+/.test(formState.email)) errors.email = 'Email is invalid';
@@ -39,9 +56,9 @@ export default function Contact() {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
     
-    // Clear error when user starts typing
-    if (formErrors[name]) {
-      setFormErrors(prev => ({ ...prev, [name]: null }));
+    // Only clear error if the name is a valid key
+    if (name in formErrors) {
+      setFormErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
 
