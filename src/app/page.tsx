@@ -250,9 +250,100 @@ export default function Home() {
             <div className="relative">
               <div className="relative rounded-lg overflow-hidden bg-gradient-to-br from-primary to-accent p-1 shadow-glow">
                 <div className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden bg-white">
-                  {/* Replace with actual image */}
-                  <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                    <span className="text-gray-500">About Image</span>
+                  {/* Neural network SVG illustration */}
+                  <div className="w-full h-full bg-gray-50 flex items-center justify-center p-4">
+                    <svg
+                      viewBox="0 0 800 600"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-full h-full"
+                    >
+                      {/* Background grid */}
+                      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(99, 102, 241, 0.1)" strokeWidth="1" />
+                      </pattern>
+                      <rect width="800" height="600" fill="url(#grid)" />
+
+                      {/* Neural Network Nodes */}
+                      {/* Input Layer */}
+                      <circle cx="150" cy="150" r="20" fill="rgba(99, 102, 241, 0.8)" className="animate-pulse-slow" />
+                      <circle cx="150" cy="250" r="20" fill="rgba(99, 102, 241, 0.8)" className="animate-pulse-slow" style={{ animationDelay: '0.5s' }} />
+                      <circle cx="150" cy="350" r="20" fill="rgba(99, 102, 241, 0.8)" className="animate-pulse-slow" style={{ animationDelay: '1s' }} />
+                      <circle cx="150" cy="450" r="20" fill="rgba(99, 102, 241, 0.8)" className="animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
+
+                      {/* Hidden Layer 1 */}
+                      <circle cx="300" cy="180" r="20" fill="rgba(99, 102, 241, 0.8)" className="animate-pulse-slow" style={{ animationDelay: '0.2s' }} />
+                      <circle cx="300" cy="300" r="20" fill="rgba(99, 102, 241, 0.8)" className="animate-pulse-slow" style={{ animationDelay: '0.7s' }} />
+                      <circle cx="300" cy="420" r="20" fill="rgba(99, 102, 241, 0.8)" className="animate-pulse-slow" style={{ animationDelay: '1.2s' }} />
+
+                      {/* Hidden Layer 2 */}
+                      <circle cx="450" cy="200" r="20" fill="rgba(99, 102, 241, 0.8)" className="animate-pulse-slow" style={{ animationDelay: '0.3s' }} />
+                      <circle cx="450" cy="400" r="20" fill="rgba(99, 102, 241, 0.8)" className="animate-pulse-slow" style={{ animationDelay: '0.8s' }} />
+
+                      {/* Output Layer */}
+                      <circle cx="600" cy="200" r="20" fill="rgba(16, 185, 129, 0.8)" className="animate-pulse-slow" style={{ animationDelay: '0.4s' }} />
+                      <circle cx="600" cy="300" r="20" fill="rgba(16, 185, 129, 0.8)" className="animate-pulse-slow" style={{ animationDelay: '0.9s' }} />
+                      <circle cx="600" cy="400" r="20" fill="rgba(16, 185, 129, 0.8)" className="animate-pulse-slow" style={{ animationDelay: '1.4s' }} />
+
+                      {/* Connections - Input to Hidden Layer 1 */}
+                      <line x1="150" y1="150" x2="300" y2="180" stroke="rgba(99, 102, 241, 0.5)" strokeWidth="2" />
+                      <line x1="150" y1="150" x2="300" y2="300" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="2" />
+                      <line x1="150" y1="150" x2="300" y2="420" stroke="rgba(99, 102, 241, 0.2)" strokeWidth="2" />
+                      
+                      <line x1="150" y1="250" x2="300" y2="180" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="2" />
+                      <line x1="150" y1="250" x2="300" y2="300" stroke="rgba(99, 102, 241, 0.5)" strokeWidth="2" />
+                      <line x1="150" y1="250" x2="300" y2="420" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="2" />
+                      
+                      <line x1="150" y1="350" x2="300" y2="180" stroke="rgba(99, 102, 241, 0.2)" strokeWidth="2" />
+                      <line x1="150" y1="350" x2="300" y2="300" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="2" />
+                      <line x1="150" y1="350" x2="300" y2="420" stroke="rgba(99, 102, 241, 0.5)" strokeWidth="2" />
+                      
+                      <line x1="150" y1="450" x2="300" y2="180" stroke="rgba(99, 102, 241, 0.1)" strokeWidth="2" />
+                      <line x1="150" y1="450" x2="300" y2="300" stroke="rgba(99, 102, 241, 0.2)" strokeWidth="2" />
+                      <line x1="150" y1="450" x2="300" y2="420" stroke="rgba(99, 102, 241, 0.5)" strokeWidth="2" />
+
+                      {/* Connections - Hidden Layer 1 to Hidden Layer 2 */}
+                      <line x1="300" y1="180" x2="450" y2="200" stroke="rgba(99, 102, 241, 0.5)" strokeWidth="2" />
+                      <line x1="300" y1="180" x2="450" y2="400" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="2" />
+                      
+                      <line x1="300" y1="300" x2="450" y2="200" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="2" />
+                      <line x1="300" y1="300" x2="450" y2="400" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="2" />
+                      
+                      <line x1="300" y1="420" x2="450" y2="200" stroke="rgba(99, 102, 241, 0.2)" strokeWidth="2" />
+                      <line x1="300" y1="420" x2="450" y2="400" stroke="rgba(99, 102, 241, 0.5)" strokeWidth="2" />
+
+                      {/* Connections - Hidden Layer 2 to Output */}
+                      <line x1="450" y1="200" x2="600" y2="200" stroke="rgba(99, 102, 241, 0.5)" strokeWidth="2" />
+                      <line x1="450" y1="200" x2="600" y2="300" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="2" />
+                      <line x1="450" y1="200" x2="600" y2="400" stroke="rgba(99, 102, 241, 0.2)" strokeWidth="2" />
+                      
+                      <line x1="450" y1="400" x2="600" y2="200" stroke="rgba(99, 102, 241, 0.2)" strokeWidth="2" />
+                      <line x1="450" y1="400" x2="600" y2="300" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="2" />
+                      <line x1="450" y1="400" x2="600" y2="400" stroke="rgba(99, 102, 241, 0.5)" strokeWidth="2" />
+
+                      {/* Data flow animation */}
+                      <circle cx="225" cy="215" r="5" fill="rgba(16, 185, 129, 0.8)">
+                        <animateMotion
+                          path="M 0 0 L 150 85"
+                          dur="3s"
+                          repeatCount="indefinite"
+                        />
+                      </circle>
+                      <circle cx="375" cy="300" r="5" fill="rgba(16, 185, 129, 0.8)">
+                        <animateMotion
+                          path="M 0 0 L 150 0"
+                          dur="2.5s"
+                          repeatCount="indefinite"
+                        />
+                      </circle>
+                      <circle cx="525" cy="300" r="5" fill="rgba(16, 185, 129, 0.8)">
+                        <animateMotion
+                          path="M 0 0 L 150 0"
+                          dur="2s"
+                          repeatCount="indefinite"
+                        />
+                      </circle>
+                    </svg>
                   </div>
                 </div>
               </div>

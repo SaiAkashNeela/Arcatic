@@ -88,27 +88,27 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-6 text-white">Our Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/services/digital-marketing" className="text-gray-400 hover:text-primary transition-colors">
+                <Link href="/services" className="text-gray-400 hover:text-primary transition-colors">
                   AI-Powered Digital Marketing
                 </Link>
               </li>
               <li>
-                <Link href="/services/fashion-designing" className="text-gray-400 hover:text-primary transition-colors">
+                <Link href="/services" className="text-gray-400 hover:text-primary transition-colors">
                   Intelligent Fashion Design
                 </Link>
               </li>
               <li>
-                <Link href="/services/brand-creation" className="text-gray-400 hover:text-primary transition-colors">
+                <Link href="/services" className="text-gray-400 hover:text-primary transition-colors">
                   Data-Driven Brand Creation
                 </Link>
               </li>
               <li>
-                <Link href="/services/development" className="text-gray-400 hover:text-primary transition-colors">
+                <Link href="/services" className="text-gray-400 hover:text-primary transition-colors">
                   Intelligent Web Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/business-analysis" className="text-gray-400 hover:text-primary transition-colors">
+                <Link href="/services" className="text-gray-400 hover:text-primary transition-colors">
                   Predictive Business Analysis
                 </Link>
               </li>
