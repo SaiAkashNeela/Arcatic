@@ -1,19 +1,43 @@
+"use client";
+
+import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 
-export const metadata = {
-  title: 'Careers - Arcatic',
-  description: 'Join our team of talented professionals and grow your career with us.',
-};
+// Define job type
+interface Job {
+  id: string;
+  title: string;
+  department: string;
+  location: string;
+  type: string;
+  description: string;
+  responsibilities: string[];
+  requirements: string[];
+}
 
 export default function Careers() {
+  const [selectedJob, setSelectedJob] = useState<Job | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openJobModal = (job: Job) => {
+    setSelectedJob(job);
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeJobModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'auto';
+  };
+
   const jobOpenings = [
     {
-      id: 'digital-marketing-specialist',
+      id: 'ARC-MKT-2023',
       title: 'Digital Marketing Specialist',
       department: 'Marketing',
-      location: 'San Francisco, CA (Hybrid)',
+      location: 'London, UK (Hybrid)',
       type: 'Full-time',
       description: 'We are looking for a Digital Marketing Specialist to develop and implement marketing strategies across digital channels.',
       responsibilities: [
@@ -34,10 +58,10 @@ export default function Careers() {
       ]
     },
     {
-      id: 'fashion-designer',
+      id: 'ARC-DSN-2023',
       title: 'Fashion Designer',
       department: 'Design',
-      location: 'San Francisco, CA (On-site)',
+      location: 'London, UK (On-site)',
       type: 'Full-time',
       description: 'We are seeking a talented Fashion Designer to create innovative designs for our clients in the fashion industry.',
       responsibilities: [
@@ -58,10 +82,10 @@ export default function Careers() {
       ]
     },
     {
-      id: 'web-developer',
+      id: 'ARC-DEV-2023',
       title: 'Web Developer',
       department: 'Development',
-      location: 'Remote',
+      location: 'London, UK (Remote)',
       type: 'Full-time',
       description: 'We are looking for a skilled Web Developer to build and maintain websites and web applications for our clients.',
       responsibilities: [
@@ -82,10 +106,10 @@ export default function Careers() {
       ]
     },
     {
-      id: 'data-analyst',
+      id: 'ARC-DAT-2023',
       title: 'Data Analyst',
       department: 'Analytics',
-      location: 'Remote',
+      location: 'London, UK (Remote)',
       type: 'Full-time',
       description: 'We are seeking a Data Analyst to help our clients make data-driven decisions by analyzing and interpreting complex data sets.',
       responsibilities: [
@@ -106,10 +130,10 @@ export default function Careers() {
       ]
     },
     {
-      id: 'project-manager',
+      id: 'ARC-PM-2023',
       title: 'Project Manager',
       department: 'Operations',
-      location: 'San Francisco, CA (Hybrid)',
+      location: 'London, UK (Hybrid)',
       type: 'Full-time',
       description: 'We are looking for an experienced Project Manager to lead and oversee client projects from inception to completion.',
       responsibilities: [
@@ -199,77 +223,29 @@ export default function Careers() {
         <div className="container-custom">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Join Our Team</h1>
-            <p className="text-xl mb-8">
-              We're looking for talented individuals who are passionate about making a difference. Explore our current openings and grow your career with us.
+            <p className="text-xl text-gray-300 mb-8">
+              We're looking for passionate individuals to help us build the future of AI-powered solutions.
             </p>
-            <a href="#openings" className="btn btn-primary">
-              View Open Positions
-            </a>
+            <a href="#openings" className="btn btn-primary">View Open Positions</a>
           </div>
         </div>
       </section>
 
-      {/* Why Work With Us */}
-      <section className="section">
+      {/* Why Join Us Section */}
+      <section className="py-16 bg-white">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Why Work With Us</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Why Join Arcatic?</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              At Arcatic, we believe in creating an environment where talented individuals can thrive, grow, and make an impact.
+              We offer a dynamic work environment where innovation thrives and your ideas matter. Join us and be part of a team that's shaping the future with AI.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="mb-4">
-                <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3">Innovative Work</h3>
-              <p className="text-gray-600">
-                Work on cutting-edge projects for diverse clients across various industries. Every day brings new challenges and opportunities to innovate.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="mb-4">
-                <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3">Collaborative Culture</h3>
-              <p className="text-gray-600">
-                Join a team of passionate professionals who value collaboration, creativity, and open communication. We believe great ideas can come from anyone.
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <div className="mb-4">
-                <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-3">Growth Opportunities</h3>
-              <p className="text-gray-600">
-                We invest in our team's professional development and provide clear paths for career advancement. Your growth is our success.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="section bg-gray-50">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Benefits & Perks</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We offer a comprehensive benefits package to support our team's well-being and work-life balance.
-            </p>
-          </div>
+          
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                <div className="mb-4">{benefit.icon}</div>
-                <h3 className="text-lg font-bold mb-2">{benefit.title}</h3>
+              <div key={index} className="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="mb-4 text-primary">{benefit.icon}</div>
+                <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
                 <p className="text-gray-600">{benefit.description}</p>
               </div>
             ))}
@@ -277,49 +253,56 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Job Openings */}
-      <section id="openings" className="section">
+      {/* Current Openings Section */}
+      <section id="openings" className="py-16 bg-gray-50">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Current Openings</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore our current job opportunities and find the perfect role for your skills and passion.
+              Explore our current job opportunities and find a role where you can make an impact.
             </p>
           </div>
+          
           <div className="space-y-6">
             {jobOpenings.map((job) => (
-              <div key={job.id} className="bg-white p-6 rounded-lg shadow-md">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-                  <div>
-                    <h3 className="text-xl font-bold mb-1">{job.title}</h3>
-                    <p className="text-gray-600 mb-4 md:mb-0">
-                      {job.department} • {job.location} • {job.type}
-                    </p>
-                  </div>
-                  <Link href={`/careers/${job.id}`} className="btn btn-primary">
-                    View Details
-                  </Link>
-                </div>
-                <div className="mt-6">
-                  <p className="text-gray-700 mb-4">{job.description}</p>
-                  <div className="grid md:grid-cols-2 gap-6">
+              <div key={job.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="p-6">
+                  <div className="flex flex-wrap justify-between items-start">
                     <div>
-                      <h4 className="font-bold mb-2">Responsibilities:</h4>
-                      <ul className="list-disc list-inside space-y-1 text-gray-600">
-                        {job.responsibilities.slice(0, 3).map((item, index) => (
-                          <li key={index}>{item}</li>
-                        ))}
-                      </ul>
+                      <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">
+                        Job ID: {job.id}
+                      </span>
+                      <h3 className="text-xl font-bold mt-2">{job.title}</h3>
+                      <div className="mt-2 space-y-1">
+                        <div className="flex items-center text-gray-600 text-sm">
+                          <svg className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                          </svg>
+                          <span>{job.department}</span>
+                        </div>
+                        <div className="flex items-center text-gray-600 text-sm">
+                          <svg className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          <span>{job.location}</span>
+                        </div>
+                        <div className="flex items-center text-gray-600 text-sm">
+                          <svg className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span>{job.type}</span>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold mb-2">Requirements:</h4>
-                      <ul className="list-disc list-inside space-y-1 text-gray-600">
-                        {job.requirements.slice(0, 3).map((item, index) => (
-                          <li key={index}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    <button
+                      onClick={() => openJobModal(job)}
+                      className="mt-4 md:mt-0 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
+                    >
+                      View Details
+                    </button>
                   </div>
+                  <p className="mt-4 text-gray-600">{job.description}</p>
                 </div>
               </div>
             ))}
@@ -327,68 +310,115 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Application Process */}
-      <section className="section bg-gray-50">
-        <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Application Process</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We've designed a straightforward process to help you find the right role at Arcatic.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
-                <span className="text-2xl font-bold text-primary">1</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Apply Online</h3>
-              <p className="text-gray-600">
-                Submit your application through our careers page with your resume and cover letter.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
-                <span className="text-2xl font-bold text-primary">2</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Initial Interview</h3>
-              <p className="text-gray-600">
-                If selected, you'll have a phone or video interview with our recruiting team.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
-                <span className="text-2xl font-bold text-primary">3</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Skills Assessment</h3>
-              <p className="text-gray-600">
-                Complete a skills assessment or task relevant to the position you're applying for.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
-                <span className="text-2xl font-bold text-primary">4</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Final Interview</h3>
-              <p className="text-gray-600">
-                Meet with the team and discuss how your skills align with our needs and culture.
-              </p>
-            </div>
-          </div>
+      {/* Job Application CTA */}
+      <section className="py-16 bg-gradient-to-r from-primary to-accent text-white">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl font-bold mb-4">Don't See a Perfect Fit?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            We're always looking for talented individuals to join our team. Send us your resume and let us know how you can contribute.
+          </p>
+          <a href="mailto:careers@arcatic.com" className="btn bg-white text-primary hover:bg-gray-100">
+            Send Your Resume
+          </a>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section bg-primary text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold mb-6">Don't See the Right Fit?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            We're always looking for talented individuals to join our team. Send us your resume, and we'll keep you in mind for future opportunities.
-          </p>
-          <Link href="/contact" className="btn bg-white text-primary hover:bg-gray-100">
-            Send Your Resume
-          </Link>
+      {/* Job Modal */}
+      {isModalOpen && selectedJob && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6 border-b">
+              <div className="flex justify-between items-start">
+                <div>
+                  <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded-full">
+                    Job ID: {selectedJob.id}
+                  </span>
+                  <h2 className="text-2xl font-bold mt-2">{selectedJob.title}</h2>
+                  <div className="mt-2 flex flex-wrap gap-4">
+                    <div className="flex items-center text-gray-600">
+                      <svg className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                      <span>{selectedJob.department}</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <svg className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      <span>{selectedJob.location}</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <svg className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>{selectedJob.type}</span>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={closeJobModal}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <div className="p-6">
+              <div className="mb-6">
+                <h3 className="text-lg font-bold mb-3">Job Description</h3>
+                <p className="text-gray-600">{selectedJob.description}</p>
+              </div>
+              
+              <div className="mb-6">
+                <h3 className="text-lg font-bold mb-3">Responsibilities</h3>
+                <ul className="list-disc pl-5 space-y-2 text-gray-600">
+                  {selectedJob.responsibilities.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div className="mb-6">
+                <h3 className="text-lg font-bold mb-3">Requirements</h3>
+                <ul className="list-disc pl-5 space-y-2 text-gray-600">
+                  {selectedJob.requirements.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-lg font-bold mb-3">How to Apply</h3>
+                <p className="text-gray-600 mb-4">
+                  Please send your resume and cover letter to <a href="mailto:careers@arcatic.com" className="text-primary hover:underline">careers@arcatic.com</a> with the subject line: "{selectedJob.id} - {selectedJob.title} Application"
+                </p>
+                <p className="text-gray-600">
+                  We look forward to learning more about you and how you can contribute to our team!
+                </p>
+              </div>
+            </div>
+            
+            <div className="p-6 border-t flex justify-end">
+              <button
+                onClick={closeJobModal}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors mr-3"
+              >
+                Close
+              </button>
+              <a
+                href={`mailto:careers@arcatic.com?subject=${selectedJob.id} - ${selectedJob.title} Application`}
+                className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
+              >
+                Apply Now
+              </a>
+            </div>
+          </div>
         </div>
-      </section>
+      )}
 
       <Footer />
     </main>

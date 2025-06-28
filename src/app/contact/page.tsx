@@ -17,18 +17,39 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
+  const validateForm = () => {
+    const errors = {};
+    if (!formState.name.trim()) errors.name = 'Name is required';
+    if (!formState.email.trim()) errors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(formState.email)) errors.email = 'Email is invalid';
+    if (!formState.service) errors.service = 'Please select a service';
+    if (!formState.message.trim()) errors.message = 'Message is required';
+    
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
+    
+    // Clear error when user starts typing
+    if (formErrors[name]) {
+      setFormErrors(prev => ({ ...prev, [name]: null }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) return;
+    
     setIsSubmitting(true);
     
     // Simulate API call
@@ -74,7 +95,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="section bg-light relative overflow-hidden">
+      <section className="section bg-light relative overflow-hidden" id="contact-form">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full filter blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full filter blur-3xl"></div>
         
@@ -97,8 +118,8 @@ export default function Contact() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                         Full Name *
@@ -109,10 +130,10 @@ export default function Contact() {
                         name="name"
                         value={formState.name}
                         onChange={handleChange}
-                        required
-                        className="form-input"
+                        className={`form-input w-full rounded-lg border ${formErrors.name ? 'border-red-500 bg-red-50' : 'border-gray-300'} px-4 py-3 focus:border-primary focus:ring focus:ring-primary/20 transition-all`}
                         placeholder="John Doe"
                       />
+                      {formErrors.name && <p className="mt-1 text-sm text-red-600">{formErrors.name}</p>}
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
@@ -124,14 +145,14 @@ export default function Contact() {
                         name="email"
                         value={formState.email}
                         onChange={handleChange}
-                        required
-                        className="form-input"
+                        className={`form-input w-full rounded-lg border ${formErrors.email ? 'border-red-500 bg-red-50' : 'border-gray-300'} px-4 py-3 focus:border-primary focus:ring focus:ring-primary/20 transition-all`}
                         placeholder="john@example.com"
                       />
+                      {formErrors.email && <p className="mt-1 text-sm text-red-600">{formErrors.email}</p>}
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                         Phone Number
@@ -142,8 +163,8 @@ export default function Contact() {
                         name="phone"
                         value={formState.phone}
                         onChange={handleChange}
-                        className="form-input"
-                        placeholder="+1 (555) 123-4567"
+                        className="form-input w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-primary focus:ring focus:ring-primary/20 transition-all"
+                        placeholder="+44 (0) 20 1234 5678"
                       />
                     </div>
                     <div>
@@ -156,13 +177,13 @@ export default function Contact() {
                         name="company"
                         value={formState.company}
                         onChange={handleChange}
-                        className="form-input"
+                        className="form-input w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-primary focus:ring focus:ring-primary/20 transition-all"
                         placeholder="Your Company"
                       />
                     </div>
                   </div>
                   
-                  <div className="mb-6">
+                  <div>
                     <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
                       Service You're Interested In *
                     </label>
@@ -171,8 +192,7 @@ export default function Contact() {
                       name="service"
                       value={formState.service}
                       onChange={handleChange}
-                      required
-                      className="form-input"
+                      className={`form-input w-full rounded-lg border ${formErrors.service ? 'border-red-500 bg-red-50' : 'border-gray-300'} px-4 py-3 focus:border-primary focus:ring focus:ring-primary/20 transition-all`}
                     >
                       <option value="">Select a Service</option>
                       <option value="digital-marketing">AI-Powered Digital Marketing</option>
@@ -185,9 +205,10 @@ export default function Contact() {
                       <option value="ai-research">AI Research & Development</option>
                       <option value="other">Other</option>
                     </select>
+                    {formErrors.service && <p className="mt-1 text-sm text-red-600">{formErrors.service}</p>}
                   </div>
                   
-                  <div className="mb-6">
+                  <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                       Your Message *
                     </label>
@@ -196,17 +217,17 @@ export default function Contact() {
                       name="message"
                       value={formState.message}
                       onChange={handleChange}
-                      required
                       rows={5}
-                      className="form-input"
+                      className={`form-input w-full rounded-lg border ${formErrors.message ? 'border-red-500 bg-red-50' : 'border-gray-300'} px-4 py-3 focus:border-primary focus:ring focus:ring-primary/20 transition-all`}
                       placeholder="Tell us about your project or inquiry..."
                     ></textarea>
+                    {formErrors.message && <p className="mt-1 text-sm text-red-600">{formErrors.message}</p>}
                   </div>
                   
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`btn btn-primary w-full flex items-center justify-center ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    className={`btn btn-primary w-full flex items-center justify-center py-3 text-base ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                   >
                     {isSubmitting ? (
                       <>
@@ -241,8 +262,9 @@ export default function Contact() {
                     <div className="ml-4">
                       <h3 className="font-medium text-dark">Our Location</h3>
                       <p className="text-gray-600 mt-1">
-                        123 AI Innovation Center<br />
-                        San Francisco, CA 94107
+                        42 Innovation House<br />
+                        Tech City, London EC1V 2PY<br />
+                        United Kingdom
                       </p>
                     </div>
                   </div>
@@ -277,10 +299,10 @@ export default function Contact() {
                     <div className="ml-4">
                       <h3 className="font-medium text-dark">Call Us</h3>
                       <p className="text-gray-600 mt-1">
-                        <a href="tel:+15551234567" className="text-primary hover:underline">+1 (555) 123-4567</a>
+                        <a href="tel:+442071234567" className="text-primary hover:underline">+44 (0) 20 7123 4567</a>
                       </p>
                       <p className="text-gray-600 mt-1">
-                        <a href="tel:+15559876543" className="text-primary hover:underline">+1 (555) 987-6543</a>
+                        <a href="tel:+442079876543" className="text-primary hover:underline">+44 (0) 20 7987 6543</a>
                       </p>
                     </div>
                   </div>
@@ -324,7 +346,7 @@ export default function Contact() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-dark">Find Us</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Visit our headquarters in the heart of San Francisco's innovation district.
+              Visit our headquarters in the heart of London's Tech City.
             </p>
           </div>
           
@@ -336,7 +358,11 @@ export default function Contact() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <p className="text-gray-600">Interactive Map Would Be Displayed Here</p>
+                <div className="space-y-2">
+                  <p className="text-gray-600 font-medium">Arcatic Headquarters</p>
+                  <p className="text-gray-500">42 Innovation House, Tech City, London EC1V 2PY</p>
+                  <p className="text-primary font-medium">London, United Kingdom</p>
+                </div>
               </div>
             </div>
           </div>
