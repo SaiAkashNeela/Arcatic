@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,14 +31,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className={`h-10 w-10 rounded-full flex items-center justify-center ${scrolled ? 'bg-primary text-white' : 'bg-white text-primary'} shadow-glow transition-all duration-300`}>
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <span className={`text-2xl font-bold ${scrolled ? 'text-dark' : 'text-white'} transition-colors duration-300`}>
-              Arcatic
-            </span>
+            <span className={`text-2xl font-bold ${scrolled ? 'text-dark' : 'text-white'}`}>Arcatic</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -121,4 +115,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
